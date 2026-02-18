@@ -1,0 +1,1 @@
+game_goal = input("What is the game goal? ")
