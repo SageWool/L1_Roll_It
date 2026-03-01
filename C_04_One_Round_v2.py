@@ -18,6 +18,13 @@ def initial_points(which_player):
 
     return total, double
 
+
+def make_statement(statement, decoration):
+    """Adds emoji / additional characters to the start and end of headings"""
+
+    ends = decoration * 3
+    print(f"\n{ends} {statement} {ends}")
+
 # Main starts here...
 
 
@@ -48,7 +55,7 @@ if user_points < comp_points:
     print("You start because your initial roll was less than the computer\n")
 # if user and computer roll equal points, the users is player 1...
 elif user_points == comp_points:
-    print("The initial rolls wre the same, the user starts!")
+    print("The initial rolls were the same, the user starts!")
 
 # if the computer has fewer points, switch the computer to 'player 1'
 else:
@@ -101,7 +108,7 @@ if winner == "user" and double_user == "yes":
     user_points = user_points * 2
 
 # Output round results
-print("\nRound Results")
+make_statement("Round Results","=")
 print(f"User Points: {user_points} | Computer Points: {comp_points}")
 print(round_feedback)
 print()
