@@ -31,14 +31,15 @@ def make_statement(statement, decoration):
 # At the start of the game, the computer / user score are both zero
 comp_score = 0
 user_score = 0
+rounds_played = 0
 
-game_goal = int(input("Game Goal: "))
+game_goal = int(input("Game Goal: ")) # should be a 
 
 # Play multiple rounds until a winner has been found
 while comp_score < game_goal and user_score < game_goal:
 
-    # start of round loop
-# for testing purposes, ask the user what the points
+    # Start of round loop
+    # For testing purposes, ask the user what the points for the user / computer were
     # Roll the dice for the user and note if they got a double
     initial_user = initial_points("User")
     initial_comp = initial_points("Comp")
@@ -54,8 +55,8 @@ while comp_score < game_goal and user_score < game_goal:
         print("Great news - if you win, you will earn double points!")
 
     # assume user goes first...
-    first = "user"
-    second = "computer"
+    first = "User"
+    second = "Computer"
     player_1_points = user_points
     player_2_points = comp_points
 
@@ -69,7 +70,7 @@ while comp_score < game_goal and user_score < game_goal:
     # if the computer has fewer points, switch the computer to 'player 1'
     else:
         player_1_points, player_2_points = player_2_points, player_1_points
-    first, second = second, first
+        first, second = second, first
 
     # Loop until we have a winner...
     while player_1_points < 13 and player_2_points < 13:
@@ -80,7 +81,7 @@ while comp_score < game_goal and user_score < game_goal:
         player_1_roll = random.randint(1, 6)
         player_1_points += player_1_roll
 
-        print(f"{second}: Rolled a {player_1_roll} - has {player_1_points} points")
+        print(f"{first}: Rolled a {player_1_roll} - has {player_1_points} points")
 
         # if the first person's score is over 13, end of round
         if player_1_points >= 13:
@@ -88,7 +89,7 @@ while comp_score < game_goal and user_score < game_goal:
 
         # second person rolls the die (and score is updated)
         player_2_roll = random.randint(1, 6)
-        player_1_points += player_2_roll
+        player_2_points += player_2_roll
 
         print(f"{second}: Rolled a {player_2_roll} - has {player_2_points} points")
 
@@ -101,23 +102,23 @@ while comp_score < game_goal and user_score < game_goal:
     comp_points = player_2_points
 
     # switch the user and computer points if the computer went first
-    if first == "computer":
+    if first == "Computer":
         user_points, comp_points = comp_points, user_points
 
     # work out who won...
     if user_points > comp_points:
-        winner = "user"
+        winner = "User"
         loser = "computer"
-        user_points = 0
+        comp_points = 0
     else:
-        winner = "computer"
-        loser = ("user")
+        winner = "Computer"
+        loser = "user"
         user_points = 0
 
     round_feedback = f"The {winner} won. The {loser}'s points have been reset to zero"
 
     # double user points if eligible
-    if winner == "user" and double_user == "yes":
+    if winner == "User" and double_user == "yes":
         user_points = user_points * 2
 
     # Output round results
