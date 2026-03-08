@@ -38,8 +38,11 @@ game_goal = int(input("Game Goal: ")) # should be a
 # Play multiple rounds until a winner has been found
 while comp_score < game_goal and user_score < game_goal:
 
+    rounds_played += 1
+
     # Start of round loop
-    # For testing purposes, ask the user what the points for the user / computer were
+    make_statement(f"Round {rounds_played}", "🎲")
+
     # Roll the dice for the user and note if they got a double
     initial_user = initial_points("User")
     initial_comp = initial_points("Comp")
@@ -136,6 +139,9 @@ while comp_score < game_goal and user_score < game_goal:
     print(f"User Score: {user_score} | Computer Score {comp_score}")
 
 # End of entire game, output final results
+
+make_statement("Game Over", "🏁")
+
 print()
 if user_score > comp_score:
     print("The user won") # replace this with statement generator call
