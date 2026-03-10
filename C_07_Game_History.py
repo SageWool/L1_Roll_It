@@ -1,7 +1,7 @@
 # initialise list to hold game history
 game_history = []
 
-# get data (base component does thi already, code for testing purposes)
+# get data (base component does thi already, code below for testing purposes)
 
 
 while True:
